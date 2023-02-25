@@ -1,5 +1,8 @@
 # Throttle
 
+Magnetic Position Sensor - AS5047D/AS5047P/AS5147P/AS5147
+Microcontroller          - ATTINY85/ATTINY13A
+DAC                      - DAC7562/DAC7563
 
 Problem:- Throttle actuator failure due to its electromechanical design. Generally majority of throttle actuators are manufactured using electromechanical design and because of its electromechanical main sensor module design, there are four contact brushes which are in contact with sensor module plate, made of carbon ceramic resistive material(works similar to a potentiometer, actually 2 pots are coupled with each other and both works opposite to each other)and moving brushes are attached with central moving shaft which directly attached with valve and due to continuosly movement between brush and carbon ceramic resistive coating, its coating starts to erroded and ultimatelty gets failed over time due to wear and tear and thus complete part is failed and lots of money gets wasted. Repairing of this is not possible and no repairing kits or spare parts are available for this.
 
