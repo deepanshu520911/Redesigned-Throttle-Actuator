@@ -10,7 +10,6 @@
 #define eecr (*(volatile char*)0x3C)
 #define sreg (*(volatile char*)0x5F)
 
-// #define ZERO 435
 #define ZERO 485
 
 
@@ -21,7 +20,6 @@ uint16_t SPI_READ_AS5147D() {
 
   portb &= ~(1 << 3);  // AS5047D CS PIN LOW
 
-//  portb = 0x36;
   portb = 0x26; // With mosfet to LDAC
   C = pinb;
   C = pinb;
@@ -152,7 +150,6 @@ uint16_t SPI_READ_AS5147D() {
   C = pinb;
 
   portb |= (1 << 3);  // AS5047D CS PIN HIGH
-
 
   uint8_t ANGLE_VALUE1 = 0;
   uint8_t ANGLE_VALUE2 = 0;
@@ -295,8 +292,8 @@ void SPI_WRITE_DAC(uint8_t SPI_SETTING, uint16_t SPI_BYTE) {
 
 void EEPROM_WRITE(uint8_t Address, uint8_t Data) {
   /* Wait for completion of previous write */
-  while (eecr & (1 << 1))
-    ;
+  while (eecr & (1 << 1));
+  
   /* Set up address and Data Registers */
   eearh = 0x00;
   eearl = Address;
@@ -308,8 +305,8 @@ void EEPROM_WRITE(uint8_t Address, uint8_t Data) {
 }
 uint8_t EEPROM_READ(uint8_t Address) {
   /* Wait for completion of previous write */
-  while (eecr & (1 << 1))
-    ;
+  while (eecr & (1 << 1));
+  
   /* Set up address register */
   eearh = 0x00;
   eearl = Address;
@@ -328,9 +325,6 @@ int main() {
   //  portb |= (1 << 2); // CLOCK PIN
   //  portb |= (1 << 4); // CHIP SELECT PIN DAC
   //  portb |= (1 << 3); // CHIP SELECT PIN AS5047D
-
-//  SPI_WRITE_DAC(0x30, 0x0003);  // LDAC PIN DISABLED
-
 
   sreg &= ~(1 << 7);
 
@@ -382,8 +376,6 @@ int main() {
 
   const uint16_t OFFSET = (EEPROM_READ(0x02) << 8) | EEPROM_READ(0x03);
 
-//  const uint16_t OFFSET = 4095;
-
   while (1) {
     ANGLE = SPI_READ_AS5147D();
     ANGLE += OFFSET;
@@ -399,4 +391,3 @@ int main() {
     SPI_WRITE_DAC(0x01, ANGLE); // With mosfet to LDAC
   }
 }
-
