@@ -9,7 +9,7 @@ I converted this electromechanical sensor design to electronic contact less desi
 ![alt text](https://github.com/deepanshu520911/Throttle/blob/main/Picture1.png)
 
 ## Impact
-Due to no repair option was available before above designed product, new throttle costing around **26k** was required on every failure. Now on every failure, fixing a failed part using above design costs **2.1k only**(including bearings, PCB, IC's etc.). Also, no future wear and tear due to due to its contactless design.
+Due to no repair option was available before above designed product, new throttle costing around **26k** was required on every failure. Now on every failure, fixing a failed part using above design costs **2.1k only**(including bearings, PCB, IC's etc.). Also, no future wear and tear because of its contactless design.
 
 ### Components Specification
 Magnetic Position Sensor - AS5047D/AS5047P/AS5147P/AS5147
